@@ -7,8 +7,6 @@
 }
 
 .add-confession-post > textarea {
-  height: 100%;
-  width: 100%;
   margin-top: 17px;
   font-size: 16px;
   resize: none;
