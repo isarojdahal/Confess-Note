@@ -20,7 +20,7 @@ const AddConfessionPost = () => {
 
   const addConfession = () => {
     //query..
-    if (text) {
+    if (text.trim()) {
       //add to db.
 
       set(ref(db, "confessions/" + uuidv4()), {
