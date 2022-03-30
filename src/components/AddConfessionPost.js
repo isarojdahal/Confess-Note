@@ -5,9 +5,19 @@ import { database as db, set, ref, onValue } from "../config/firebase";
 import { v4 as uuidv4 } from "uuid";
 import { ToastContainer, toast } from "react-toast";
 import { deleteData } from "../utils/database";
+import Picker from 'emoji-picker-react';
+import {BsEmojiSmile} from 'react-icons/bs'
 
 const AddConfessionPost = () => {
   const [text, setText] = useState("");
+  const [emojiPicker, setEmojiPicker] = useState(false);
+
+  const onEmojiClick = (event, emojiObject) => {
+    setText((previousInput) => previousInput + emojiObject.emoji);
+    setEmojiPicker(false);
+  }
+
+
   const addConfession = () => {
     //query..
     if (text) {
@@ -42,6 +52,11 @@ const AddConfessionPost = () => {
         <button className="confess-btn" onClick={() => addConfession()}>
           Confess
         </button>
+        <BsEmojiSmile className="emoji-btn" size={25} onClick={()=> setEmojiPicker((value)=> !value)}/>
+        {emojiPicker && (
+          <Picker pickerStyle={{width: "50%"}} onEmojiClick={onEmojiClick} />
+          
+        )}
       </div>
 
       <FaLock size="8" />
