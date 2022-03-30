@@ -7,11 +7,14 @@
 }
 
 .add-confession-post > textarea {
-  margin-top: 30px;
-  font-size: 18px;
+  height: 100%;
+  width: 100%;
+  margin-top: 17px;
+  font-size: 16px;
   resize: none;
   border: none;
   outline: none;
+  letter-spacing: .05rem;
 }
 
 .confess-btn {
