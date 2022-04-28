@@ -5,8 +5,8 @@ import { database as db, set, ref, onValue } from "../config/firebase";
 import { v4 as uuidv4 } from "uuid";
 import { ToastContainer, toast } from "react-toast";
 import { deleteData } from "../utils/database";
-import Picker from 'emoji-picker-react';
-import {BsEmojiSmile} from 'react-icons/bs'
+import Picker from "emoji-picker-react";
+import { BsEmojiSmile } from "react-icons/bs";
 
 const AddConfessionPost = () => {
   const [text, setText] = useState("");
@@ -15,8 +15,7 @@ const AddConfessionPost = () => {
   const onEmojiClick = (event, emojiObject) => {
     setText((previousInput) => previousInput + emojiObject.emoji);
     setEmojiPicker(false);
-  }
-
+  };
 
   const addConfession = () => {
     //query..
@@ -42,6 +41,7 @@ const AddConfessionPost = () => {
     <center>
       <div className="add-confession-post">
         <textarea
+          className="text-area"
           rows="8"
           cols="85"
           placeholder="Write your Confession here..."
@@ -52,10 +52,13 @@ const AddConfessionPost = () => {
         <button className="confess-btn" onClick={() => addConfession()}>
           Confess
         </button>
-        <BsEmojiSmile className="emoji-btn" size={25} onClick={()=> setEmojiPicker((value)=> !value)}/>
+        <BsEmojiSmile
+          className="emoji-btn"
+          size={25}
+          onClick={() => setEmojiPicker((value) => !value)}
+        />
         {emojiPicker && (
-          <Picker pickerStyle={{width: "50%"}} onEmojiClick={onEmojiClick} />
-          
+          <Picker pickerStyle={{ width: "50%" }} onEmojiClick={onEmojiClick} />
         )}
       </div>
 
